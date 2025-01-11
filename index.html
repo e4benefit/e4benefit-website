@@ -562,7 +562,7 @@ ETHICS 4 BENEFIT makes a difference for tomorrow.</p>
             
             <div class="fluentform ff-default fluentform_wrapper_3 ffs_default_wrap">
 <form data-form_id="3" id="fluentform_3" class="frm-fluent-form fluent_form_3 ff-el-form-top ff_form_instance_3_1 ff-form-loading ffs_default" 
-    data-form_instance="ff_form_instance_3_1"  
+    data-form_instance="ff_form_instance_3_1" 
     action="https://formsubmit.co/e4benefit@gmail.com" method="POST">
     
     <fieldset style="border: none!important;margin: 0!important;padding: 0!important;background-color: transparent!important;box-shadow: none!important;outline: none!important; min-inline-size: 100%;">
@@ -618,6 +618,40 @@ ETHICS 4 BENEFIT makes a difference for tomorrow.</p>
         </div>
     </fieldset>
 </form>
+
+<script>
+    document.getElementById('fluentform_3').addEventListener('submit', async function (event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        const form = event.target;
+        const formData = new FormData(form);
+        const jsonData = Object.fromEntries(formData.entries()); // Convert form data to JSON
+
+        try {
+            // Send the data using fetch()
+            const response = await fetch(form.action, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(jsonData),
+            });
+
+            const result = await response.json();
+            if (result.status === 'success') {
+                alert('Message sent successfully!');
+                form.reset(); // Reset the form
+                document.getElementById('fluentform_3_errors').innerHTML = ''; // Clear error messages
+            } else {
+                document.getElementById('fluentform_3_errors').innerHTML = `<div class="ff-error">${result.message}</div>`;
+            }
+        } catch (error) {
+            document.getElementById('fluentform_3_errors').innerHTML = `<div class="ff-error">Submission failed: ${error.message}</div>`;
+        }
+    });
+</script>
+<div id="fluentform_3_errors" class="ff-errors-in-stack ff_form_instance_3_1 ff-form-loading_errors ff_form_instance_3_1_errors"></div>
+</div>        <script type="text/javascript">window.fluent_form_ff_form_instance_3_1 = {"id":"3","settings":{"layout":{"labelPlacement":"top","asteriskPlacement":"asterisk-right","helpMessagePlacement":"with_label","errorMessagePlacement":"inline","cssClassName":""},"restrictions":{"denyEmptySubmission":{"enabled":false}}},"form_instance":"ff_form_instance_3_1","form_id_selector":"fluentform_3","rules":{"input_text":{"required":{"value":true,"message":"This field is required","global_message":"This field is required","global":true}},"input_text_1":{"required":{"value":true,"message":"This field is required","global_message":"This field is required","global":true}},"input_text_2":{"required":{"value":false,"message":"This field is required","global_message":"This field is required","global":true}},"description":{"required":{"value":true,"message":"This field is required","global_message":"This field is required","global":true}}},"debounce_time":300};</script>
+
+		    
             				</div>
 				</div>
 					</div>
