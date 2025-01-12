@@ -2,7 +2,34 @@
 <html lang="en-US">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<Title>Redirecting...</Title>	
+
+<!-- Redirection Logic -->
+  <script>
+    // Define the target URL
+    const targetDomain = "https://www.e4benefit.eu";
+
+    // Get the current hostname
+    const currentHost = window.location.hostname;
+
+    // Check if the current domain is one of the ones to be redirected
+    if (currentHost === "e4benefit.eu" || 
+        currentHost === "www.e4benefit.com" || 
+        currentHost === "e4benefit.com") {
+      // Redirect to the target domain
+      window.location.href = targetDomain;
+    }
+  </script>
+	
+<p>If you are not redirected automatically, <a href="https://www.e4benefit.eu">click here</a>.</p>
+  
+  <!-- Fallback redirection for browsers without JavaScript -->
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=https://www.e4benefit.eu">
+  </noscript>
+
+	
 	<link rel="profile" href="https://gmpg.org/xfn/11"> 
 	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
