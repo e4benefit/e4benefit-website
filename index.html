@@ -560,75 +560,101 @@ ETHICS 4 BENEFIT makes a difference for tomorrow.</p>
             <div class="fluentform-widget-wrapper fluentform-widget-align-default">
 
             
-<body>
-    <!-- Form HTML -->
-    <div class="fluentform ff-default fluentform_wrapper_3 ffs_default_wrap">
-        <form action="https://formsubmit.co/a049cca43188f60deaf08f1984bc3031" 
-              method="POST" 
-              id="fluentform_3" 
-              class="frm-fluent-form fluent_form_3 ff-el-form-top ff_form_instance_3_1 ff-form-loading ffs_default">
+<div class="fluentform ff-default fluentform_wrapper_3 ffs_default_wrap">
+    <form action="https://formsubmit.co/a049cca43188f60deaf08f1984bc3031" 
+          method="POST" 
+          id="fluentform_3" 
+          class="frm-fluent-form fluent_form_3 ff-el-form-top ff_form_instance_3_1 ff-form-loading ffs_default">
 
-            <!-- Form Fields -->
-            <fieldset>
-                <!-- Name Field -->
-                <div class="ff-el-group ff-el-form-hide_label">
+        <fieldset style="border: none!important; margin: 0!important; padding: 0!important; background-color: transparent!important; box-shadow: none!important; outline: none!important; min-inline-size: 100%;">
+            <legend class="ff_screen_reader_title" style="display: block; margin: 0!important; padding: 0!important; height: 0!important; text-indent: -999999px; width: 0!important; overflow: hidden;">Contact Form</legend>
+
+            <!-- Name Field -->
+            <div class="ff-el-group ff-el-form-hide_label">
+                <div class="ff-el-input--label ff-el-is-required asterisk-right">
                     <label for="name">Your Name</label>
-                    <input type="text" name="name" id="name" required>
                 </div>
+                <div class="ff-el-input--content">
+                    <input type="text" name="name" id="name" class="ff-el-form-control" placeholder="Your Name*" required>
+                </div>
+            </div>
 
-                <!-- Email Field -->
-                <div class="ff-el-group ff-el-form-hide_label">
+            <!-- Email Field -->
+            <div class="ff-el-group ff-el-form-hide_label">
+                <div class="ff-el-input--label ff-el-is-required asterisk-right">
                     <label for="email">Your Email</label>
-                    <input type="email" name="email" id="email" required>
                 </div>
+                <div class="ff-el-input--content">
+                    <input type="email" name="email" id="email" class="ff-el-form-control" placeholder="Your Email*" required>
+                </div>
+            </div>
 
-                <!-- Message Field -->
-                <div class="ff-el-group ff-el-form-hide_label">
+            <!-- Phone Field -->
+            <div class="ff-el-group ff-el-form-hide_label">
+                <div class="ff-el-input--label">
+                    <label for="phone">Your Phone</label>
+                </div>
+                <div class="ff-el-input--content">
+                    <input type="tel" name="phone" id="phone" class="ff-el-form-control" placeholder="Your Phone">
+                </div>
+            </div>
+
+            <!-- Message Field -->
+            <div class="ff-el-group ff-el-form-hide_label">
+                <div class="ff-el-input--label ff-el-is-required asterisk-right">
                     <label for="message">Your Message</label>
-                    <textarea name="message" id="message" required></textarea>
                 </div>
+                <div class="ff-el-input--content">
+                    <textarea name="message" id="message" class="ff-el-form-control" placeholder="Your Message*" rows="5" required></textarea>
+                </div>
+            </div>
 
-                <!-- Submit Button -->
-                <button type="submit">Send</button>
-            </fieldset>
+            <!-- Submit Button -->
+            <div class="ff-el-group ff-text-center ff_submit_btn_wrapper">
+                <button type="submit" class="ff-btn ff-btn-submit ff-btn-md ff_btn_style wpf_has_custom_css">Send Message</button>
+            </div>
+        </fieldset>
 
-            <!-- Hidden Fields -->
-            <input type="hidden" name="_next" value="https://www.e4benefit.eu">
-            <input type="hidden" name="_subject" value="New Contact Form Submission">
-            <input type="hidden" name="_honey" style="display:none">
-            <input type="hidden" name="_confirmation" value="true">
-        </form>
-        <div id="fluentform_3_errors"></div>
-    </div>
+        <!-- Hidden Fields for FormSubmit -->
+        <input type="hidden" name="_next" value="https://www.e4benefit.eu">
+        <input type="hidden" name="_subject" value="New Contact Form Submission">
+	<input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_honey" style="display:none">
+        <input type="hidden" name="_confirmation" value="true">
+    </form>
 
-    <!-- Custom JavaScript -->
-    <script>
-        document.getElementById('fluentform_3').addEventListener('submit', async function (event) {
-            event.preventDefault();
+    <!-- Errors Container -->
+    <div id="fluentform_3_errors" class="ff-errors-in-stack ff_form_instance_3_1 ff-form-loading_errors ff_form_instance_3_1_errors"></div>
+</div>
 
-            const form = event.target;
-            const errorContainer = document.getElementById('fluentform_3_errors');
-            const formData = new FormData(form);
+<!-- Custom JavaScript -->
+<script>
+    document.getElementById('fluentform_3').addEventListener('submit', async function (event) {
+        event.preventDefault(); // Prevent default form submission behavior
 
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                });
+        const form = event.target; // Reference to the form element
+        const errorContainer = document.getElementById('fluentform_3_errors'); // Error container
+        const formData = new FormData(form); // Collect form data
 
-                if (response.ok) {
-                    alert('Message sent successfully!');
-                    form.reset();
-                    errorContainer.innerHTML = '';
-                } else {
-                    errorContainer.innerHTML = `<div class="ff-error">Error: ${response.status} ${response.statusText}</div>`;
-                }
-            } catch (error) {
-                errorContainer.innerHTML = `<div class="ff-error">Submission failed: ${error.message}</div>`;
+        try {
+            // Submit the form data to FormSubmit.co
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                alert('Message sent successfully!');
+                form.reset(); // Clear the form fields
+                errorContainer.innerHTML = ''; // Clear any previous error messages
+            } else {
+                errorContainer.innerHTML = `<div class="ff-error">Error: ${response.status} ${response.statusText}</div>`;
             }
-        });
-    </script>
-</body>
+        } catch (error) {
+            errorContainer.innerHTML = `<div class="ff-error">Submission failed: ${error.message}</div>`;
+        }
+    });
+</script>
             				</div>
 				</div>
 					</div>
