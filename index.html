@@ -563,8 +563,7 @@ ETHICS 4 BENEFIT makes a difference for tomorrow.</p>
 <div class="fluentform ff-default fluentform_wrapper_3 ffs_default_wrap">
     <form action="https://formsubmit.co/a049cca43188f60deaf08f1984bc3031" 
           method="POST" 
-          id="fluentform_3" 
-          class="frm-fluent-form fluent_form_3 ff-el-form-top ff_form_instance_3_1 ff-form-loading ffs_default">
+          id="fluentform_3">
 
         <fieldset style="border: none!important; margin: 0!important; padding: 0!important; background-color: transparent!important; box-shadow: none!important; outline: none!important; min-inline-size: 100%;">
             <legend class="ff_screen_reader_title" style="display: block; margin: 0!important; padding: 0!important; height: 0!important; text-indent: -999999px; width: 0!important; overflow: hidden;">Contact Form</legend>
@@ -647,7 +646,11 @@ ETHICS 4 BENEFIT makes a difference for tomorrow.</p>
                 alert('Message sent successfully!');
                 form.reset(); // Clear the form fields
                 errorContainer.innerHTML = ''; // Clear any previous error messages
-            } else {
+ 	
+		// Redirect to homepage after the user confirms the success message
+                window.location.href = "https://www.e4benefit.eu";
+
+	    } else {
                 errorContainer.innerHTML = `<div class="ff-error">Error: ${response.status} ${response.statusText}</div>`;
             }
         } catch (error) {
