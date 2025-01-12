@@ -625,7 +625,36 @@ ETHICS 4 BENEFIT makes a difference for tomorrow.</p>
   <!-- Errors Container -->
   <div id="fluentform_3_errors" class="ff-errors-in-stack ff_form_instance_3_1 ff-form-loading_errors ff_form_instance_3_1_errors"></div>
 </div>
-		    
+
+<script>
+    // Add a submit event listener to the form
+    document.getElementById('fluentform_3').addEventListener('submit', async function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const form = event.target; // Reference to the form
+        const errorContainer = document.getElementById('fluentform_3_errors'); // Error container
+        const formData = new FormData(form); // Collect form data
+
+        try {
+            // Send form data to FormSubmit.co
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                alert('Message sent successfully!');
+                form.reset(); // Clear form fields on success
+                errorContainer.innerHTML = ''; // Clear any previous error messages
+            } else {
+                const errorMessage = `Error ${response.status}: ${response.statusText}`;
+                errorContainer.innerHTML = `<div class="ff-error">${errorMessage}</div>`;
+            }
+        } catch (error) {
+            errorContainer.innerHTML = `<div class="ff-error">Submission failed: ${error.message}</div>`;
+        }
+    });
+</script>
             				</div>
 				</div>
 					</div>
