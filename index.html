@@ -4,6 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Redirecting...</title>
+
+  <!-- Redirection Logic -->
+  <script>
+    // Define the target URL
+    const targetDomain = "https://e4benefit.eu";
+
+    // Get the current hostname
+    const currentHost = window.location.hostname;
+
+    // Redirect only if the current host is not the target
+    if (currentHost === "www.e4benefit.eu" || 
+        currentHost === "www.e4benefit.com" || 
+        currentHost === "e4benefit.com") {
+      window.location.href = targetDomain;
+    }
+  </script>
+  
+  <!-- Fallback redirection for browsers without JavaScript -->
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=https://e4benefit.eu">
+  </noscript>
+</head>
+<body>
+  <p>Redirecting to <a href="https://e4benefit.eu">https://e4benefit.eu</a>...</p>
+</body>
+</html>
+
 	<link rel="profile" href="https://gmpg.org/xfn/11"> 
 	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
