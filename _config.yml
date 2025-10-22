@@ -1,0 +1,11 @@
+title: ETHICS 4 BENEFIT
+description: >
+  Static export of the ETHICS 4 BENEFIT site, built with Jekyll to preserve the
+  existing design while improving maintainability.
+baseurl: ""
+url: ""
+theme: null
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
