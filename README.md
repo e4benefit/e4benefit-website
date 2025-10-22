@@ -8,7 +8,9 @@
 ## Structure
 - `_config.yml` – core Jekyll settings (site metadata, exclusions, theme disabled).
 - `_layouts/default.html` – pass-through layout that keeps the legacy markup intact.
-- `index.html` and the section directories (`investors`, `platform`, `traders`, etc.) – original HTML files with minimal front matter for Jekyll processing.
+- `assets/css/global-inline.css` – consolidated WordPress/Elementor inline styles that were previously inlined on every page.
+- `assets/css/page-*.css` – the per-page Elementor rules that drive each section’s layout, extracted from the original inline blocks so the HTML files stay readable.
+- `index.html` and the section directories (`investors`, `platform`, `traders`, etc.) – original HTML files with minimal front matter for Jekyll processing and without embedded CSS noise.
 - `wp-content` / `wp-includes` – legacy assets (CSS, JS, media) required for the current appearance.
 
 ## Local Development
